@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="container-fluid mt-5">
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <div class="bg-white m-auto rounded-2 shadow-md p-5" style="max-width: 500px;">
+
+                <h4 class="text-center"> <strong> Post Thought </strong></h4>
+
+                <br><br>
+
+                <form method="POST" autocomplete="off" class="m-auto">
+                    {% csrf_token %}
+
+                    {{ form.title|as_crispy_field}}
+
+                    <br>
+
+                    {{ form.content|as_crispy_field}}
+
+                    <br><br>
+
+                    <button type="submit" class="btn btn-secondary btn-lg m-auto p-4 w-50 d-flex justify-content-center"> &nbsp; Post thought</button>
+
+                    <br>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

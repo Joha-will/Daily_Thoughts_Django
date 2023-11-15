@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="container-fluid mt-5">
+
+        <br>
+        <br>
+
+        <div class="text-center">
+
+            {% if user.is_authenticated %}
+
+                <h2> Dailythoughts.... A home for your thoughts. </h2>
+
+                <br>
+            {% else %}
+
+                <a class="btn btn-outline-primary" type="button" href="{% url 'register' %}">Register</a>
+
+            {% endif %}
+        </div>
+
+
+    </div>
+
+{% endblock %}

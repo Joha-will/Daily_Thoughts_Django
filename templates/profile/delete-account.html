@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="container-fluid mt-5">
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <div class="bg-white m-auto rounded-2 shadow-md p-5" style="max-width: 500px;">
+
+                <h4 class="text-center"> <strong> Delete account </strong></h4>
+
+                <br><br>
+
+                <form method="POST" autocomplete="off" class="m-auto">
+                    {% csrf_token %}
+
+                    <p>Are you sure you want to delete your account?</p>
+
+                    <a href="{% url 'profile-management' %}">Go back</a>
+
+                    <br><br>
+
+                    <button type="submit" class="btn btn-secondary btn-lg m-auto w-100 btn-block p-3 d-flex justify-content-center"> &nbsp; Delete account</button>
+
+                    <br>
+
+                </form>
+
+            </div>
+
+            <br>
+
+            {% for message in messages %}
+
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+
+                    <p class="text-center text-white alert alert-success" id="message-timer">
+                        {{ message }}
+                    </p>
+                
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

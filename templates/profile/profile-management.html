@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="container-fluid mt-5">
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <div class="bg-white m-auto rounded-2 shadow-md p-5" style="max-width: 500px;">
+
+                <h4 class="text-center"> <strong> Profile Manangement </strong></h4>
+
+                <br><br>
+
+                <form method="POST" autocomplete="off" class="m-auto">
+                    {% csrf_token %}
+
+                    {{ form.username|as_crispy_field}}
+
+                    <br>
+
+                    {{ form.email|as_crispy_field}}
+
+                    <br>
+                    
+                    <button type="submit" class="btn btn-secondary btn-lg m-auto w-100 btn-block p-3 d-flex justify-content-center"> &nbsp; Update</button>
+
+                </form>
+
+            </div>
+
+            <br>
+
+            <div class="bg-white m-auto rounded-2 shadow-md p-5" style="max-width: 500px;">
+
+                <form method="POST" autocomplete="off" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <span>{{ profile_form_update|crispy}}</span>
+
+                    <br>
+
+                    <button type="submit" w-100 class="btn btn-secondary btn-lg m-auto w-100 btn-block p-3 d-flex justify-content-center "><span><i class="fa-solid fa-plus"></i></span> &nbsp; Upload profile picture </button>
+
+                </form>
+
+            </div>
+
+            <br>
+
+            <div class="col-12">
+
+                <div class="bg-white m-auto p-5 rounded-2 shadow-md" style="max-width: 500px;">
+    
+                    <p>No longer need your account? Use the option below to <strong>delete your account.  </strong> 
+                    </p>
+                    
+                    <a href="{% url 'delete-account' %}" class="btn btn-secondary btn-lg m-auto w-100 btn-block p-3 d-flex justify-content-center"> &nbsp; Process to delete account</a>
+    
+                </div>
+    
+                <br><br>
+    
+            </div>
+
+            <br>
+
+
+
+            {% for message in messages %}
+
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+
+                    <p class="text-center text-white alert alert-success" id="message-timer">
+                        {{ message }}
+                    </p>
+                
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{% for message in messages %}
+
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+
+        <p class="text-center text-white alert alert-success" id="message-timer">
+            <i class="fa fa-check" aria-hidden="true"></i> &nbsp;{{ message }}
+        </p>
+
+    {% endif %}
+
+{% endfor %}
+
+<div class="container-fluid mt-5">
+
+    <div class="row">
+
+        {% for thought in thoughts %}
+
+            <div class="col-12">
+
+                <div class="bg-white m-auto p-5 rounded-2 shadow-md" style="max-width: 500px;">
+
+                    <h4 class="text-center"><strong>  Your thoughts </strong></h4>
+
+                    <br><br>
+
+                    {{ thought.title }}
+
+                    <br><br>
+
+                    {{ thought.content }}
+
+                    <br><br>
+
+                    <a class="btn btn-outline-primary" type="button" href="{% url 'update-thought' thought.id %}">Update</a>
+
+                    <br><br>
+
+                    <a class="btn btn-outline-danger" type="button" href="{% url 'delete-thought' thought.id %}">Delete</a>
+
+                </div>
+
+                <br><br>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

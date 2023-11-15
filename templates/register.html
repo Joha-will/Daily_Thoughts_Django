@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="container-fluid mt-5">
+
+    <div class="row">
+
+        <div class="col-lg-6 col-md-10 bg-white m-auto rounded-2 shadow-md mb-5">
+
+            <br>
+            <div class="text-center">
+
+                <h2> <strong> Create your account</strong></h2>
+                <small><strong>Share your thoughts today! </strong></small>
+
+            </div>
+
+            <br><br>
+
+            <form method="POST" autocomplete="off" class="m-auto">
+                {% csrf_token %}
+
+                {{ form|crispy}}
+
+                <br>
+
+                <button type="submit" class="btn btn-secondary btn-lg w-50 d-flex justify-content-center m-auto p-4"> &nbsp; Create account</button>
+
+                <br><br>
+
+            </form>
+
+            <div class="text-center">
+                <p> Already have an account? &nbsp;<a href="{% url 'user-login' %}">Login</a></p>
+
+            </div>
+
+            <br>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
