@@ -20,37 +20,36 @@
 
     <div class="row">
 
-        {% for thought in thoughts %}
+        <div class="col-12">
 
-            <div class="col-12">
+            <h2 class="text-center"><strong> <u>Your thoughts</u></strong></h2>
 
+            <br>
+
+            {% for thought in thoughts %}
                 <div class="bg-white m-auto p-5 rounded-2 shadow-md" style="max-width: 500px;">
-
-                    <h4 class="text-center"><strong>  Your thoughts </strong></h4>
-
+                    
                     <br><br>
 
-                    {{ thought.title }}
-
-                    <br><br>
+                    <h3>{{ thought.title }}</h3>
 
                     {{ thought.content }}
 
                     <br><br>
 
-                    <a class="btn btn-outline-primary" type="button" href="{% url 'update-thought' thought.id %}">Update</a>
+                    <a class="btn btn-outline-primary btn-lg m-auto p-2 w-100 d-flex justify-content-center" type="button" href="{% url 'update-thought' thought.id %}">Update</a>
 
-                    <br><br>
+                    <br>
 
-                    <a class="btn btn-outline-danger" type="button" href="{% url 'delete-thought' thought.id %}">Delete</a>
+                    <a class="btn btn-outline-danger btn-lg m-auto p-2 w-100 d-flex justify-content-center" type="button" href="{% url 'delete-thought' thought.id %}">Delete</a>
 
                 </div>
 
                 <br><br>
 
-            </div>
+            {% endfor %}
 
-        {% endfor %}
+        </div>
 
     </div>
 
