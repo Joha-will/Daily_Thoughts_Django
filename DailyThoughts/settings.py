@@ -136,7 +136,7 @@ STATIC_URL = 'static/'
 
 MEDIA_URL = 'images/'
 
-STATICFILES_DIRS = [ 'static',]
+STATICFILES_DIRS = [ 'DailyThoughts/static',]
 
 STATIC_ROOT = BASE_DIR /'static'
 
