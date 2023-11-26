@@ -80,7 +80,7 @@ def user_logout(request):
 @login_required(login_url='user-login')
 def dashboard(request):
     """ This view render's the dashboard """
-
+    
     profile_pic = Profile.objects.get(user=request.user)
 
     context = {
