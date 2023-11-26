@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['daily-thoughts-375d618de078.herokuapp.com', 'localhost']
 
@@ -136,7 +136,9 @@ STATIC_URL = 'static/'
 
 MEDIA_URL = 'images/'
 
-STATICFILES_DIRS = [ BASE_DIR / 'static']
+STATICFILES_DIRS = [ 'DailyThoughts/static',]
+
+STATIC_ROOT = BASE_DIR /'static'
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
